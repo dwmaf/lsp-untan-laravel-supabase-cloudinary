@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  datatables.net-dt:
+    specifier: ^2.0.2
+    version: 2.0.2
   react-icons:
     specifier: ^5.0.1
     version: 5.0.1(react@18.2.0)
@@ -584,6 +587,19 @@ packages:
     hasBin: true
     dev: true
 
+  /datatables.net-dt@2.0.2:
+    resolution: {integrity: sha512-/Zpy7ZWGgCbCJB9qJZvaB+KFrdo+8JjjOdxL59/QiG3jquz2ZCsE9u814kbaGKTM1ARkvZVUxDB9IlH5qmHaqw==}
+    dependencies:
+      datatables.net: 2.0.2
+      jquery: 3.7.1
+    dev: false
+
+  /datatables.net@2.0.2:
+    resolution: {integrity: sha512-uQM+s1oXhpTajUw5DCxarpfAtQJMh0MKFCLZMCc+UWLWPg8ipe6L2zgDMbRC8n9UCwGVpHOwUYlQu2JU1/PhSg==}
+    dependencies:
+      jquery: 3.7.1
+    dev: false
+
   /delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
@@ -801,6 +817,10 @@ packages:
     resolution: {integrity: sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==}
     hasBin: true
     dev: true
+
+  /jquery@3.7.1:
+    resolution: {integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==}
+    dev: false
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
