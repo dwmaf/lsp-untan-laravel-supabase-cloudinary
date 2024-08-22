@@ -28,23 +28,4 @@
         </form>
     </div>
 </div>
-    {{-- <div class="px-5">
-        <h1 class="text-3xl py-4">Tambah asesor baru</h1>
-        
-        <form method="POST" action="/admin/asesor" class="flex-col gap-4 flex max-w-80">
-            @csrf
-            <label for="nama_asesor">Nama Asesor</label>
-            <input type="text" class="@error('nama_asesor') @enderror" name="nama_asesor" id="nama_asesor" placeholder="isi nama asesor" autofocus required>
-            @error('nama_asesor')
-                <div class="">{{ $message }}</div>
-            @enderror
-            <label for="nama_skema">Skema yang diasesi</label>
-            <select class="" name="skema_id" id="" required>
-                @foreach ($skemas as $skema)
-                    <option value="{{ $skema->id }}">{{ $skema->nama_skema }}</option>
-                @endforeach
-            </select>
-            <button type="submit" class="text-cyan-700">Tambah</button>
-        </form>
-    </div> --}}
 @endsection

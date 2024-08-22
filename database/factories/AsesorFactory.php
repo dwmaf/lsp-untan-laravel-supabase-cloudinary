@@ -17,8 +17,8 @@ class AsesorFactory extends Factory
     public function definition(): array
     {
         return [
-            'nama_asesor' => fake()->name(),
-            'skema_id' => fake()->unique()->numberBetween(1,10)
+            // 'nama_asesor' => fake()->name(),
+            // 'skema_id' => fake()->numberBetween(1,10)
         ];
     }
 }

@@ -1,13 +1,18 @@
 @extends('layouts.navbar')
 @section('child')
-<div class="container-fluid px-4" style="max-width: 800px;">
+<div class="section-header pt-4">
+    <h2>
+        Daftar Asesor
+    </h2>
+</div>
+<div class="container-fluid px-4 mt-4" style="max-width: 800px;">
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
-            Daftar Asesor
+            Daftar Asesor yang terdapat di LSP UNTAN
         </div>
         <div class="card-body">
-          {{-- taruh sini tabelnya--}}
+          {{-- taruh sini tabelnya--}} 
           <table id="datatablesSimple">
               <thead>
                   <tr>
@@ -21,7 +26,11 @@
                   <tr>
                       <td >{{ $loop->iteration }}</td>
                       <td >{{ $asesor->nama_asesor }}</td>
-                      <td >{{ $asesor->skema->nama_skema }}</td>
+                      @if(empty($asesor->skema->nama_skema))
+                        <td>No data</td>
+                      @else
+                        <td>{{ $asesor->skema->nama_skema }}</td>
+                      @endif
                   </tr>
                   @endforeach
               </tbody>

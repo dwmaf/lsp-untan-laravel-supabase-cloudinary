@@ -60,6 +60,7 @@ class ManageAsesorController extends Controller
             'asesor' => $asesor,
             'skemas' =>Skema::all()
         ]);
+        
     }
 
     /**

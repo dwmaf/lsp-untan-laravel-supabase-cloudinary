@@ -26,13 +26,17 @@
                     <tr>
                         <td >{{ $loop->iteration}}</td>
                         <td >{{ $asesor->nama_asesor }}</td>
-                        <td >{{ $asesor->skema->nama_skema }}</td>
+                        @if(empty($asesor->skema->nama_skema))
+                            <td>No data</td>
+                        @else
+                            <td>{{ $asesor->skema->nama_skema }}</td>
+                        @endif
                         <td >
                             <a class=" btn btn-warning" href="/admin/asesor/{{ $asesor->id }}/edit" ><i class="fa-solid fa-pen-to-square"></i></a>
                             <form action="/admin/asesor/{{ $asesor->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button class=" btn btn-danger border-0" onclick="return confirm('Hapus data asesor?')" ><i class="fa-solid fa-trash-can"></i></button>
+                                <button class=" btn btn-danger border-0" onclick="return confirm('Hapus data {{ $asesor->nama_asesor }}?')" ><i class="fa-solid fa-trash-can"></i></button>
                             </form>
                         </td>
                     </tr>

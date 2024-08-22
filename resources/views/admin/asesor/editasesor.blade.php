@@ -27,7 +27,7 @@
                     @endif
                     @endforeach
                 </select>
-                <label for="nama_skema">Skema yang diasesi</label>
+                <label for="nama_skema">Skema</label>
             </div>
             <button type="submit" class="btn btn-primary">Edit</button>
         </form>
@@ -35,28 +35,5 @@
 </div>
 
 
-    {{-- <div class="px-5">
-        <h1 class="text-3xl py-4">Edit asesor</h1>
-        <a href="/admin/asesor" class="text-cyan-700 hover:underline py-4">Kembali ke daftar asesor</a>
-        <form method="POST" action="/admin/asesor/{{ $asesor->id }}" class="flex-col flex max-w-80">
-            @method('put')
-            @csrf
-            <label for="nama_asesor">Nama Asesor</label>
-            <input type="text" class="@error('nama_asesor') @enderror" name="nama_asesor" id="nama_asesor" value="{{ $asesor->nama_asesor }}" placeholder="isi nama asesor" autofocus required>
-            @error('nama_asesor')
-                <div class="">{{ $message }}</div>
-            @enderror
-            <label for="nama_skema">Skema yang diasesi</label>
-            <select class="" name="skema_id" id="" required>
-                @foreach ($skemas as $skema)
-                    @if (old('skema_id', $asesor->skema_id) == $skema->id)
-                        <option value="{{ $skema->id }}" selected>{{ $skema->nama_skema }}</option>
-                    @else
-                        <option value="{{ $skema->id }}" >{{ $skema->nama_skema }}</option>
-                    @endif
-                @endforeach
-            </select>
-            <button type="submit" class="text-cyan-700">Edit</button>
-        </form>
-    </div> --}}
+    
 @endsection

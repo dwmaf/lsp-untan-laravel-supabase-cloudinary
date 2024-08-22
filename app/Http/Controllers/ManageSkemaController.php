@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Skema;
+use App\Models\Unitkompetensi;
 use Illuminate\Http\Request;
-
+ 
 class ManageSkemaController extends Controller
 {
     /**
@@ -26,7 +27,7 @@ class ManageSkemaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage. 
      */
     public function store(Request $request)
     {
@@ -45,6 +46,11 @@ class ManageSkemaController extends Controller
     public function show(Skema $skema)
     {
         
+        return view('/admin/unitkompetensi/manageunitk', [
+            'unitkompetensis' => Unitkompetensi::where('skema_id',$skema->id)->get(),
+            // 'skema' => Skema::where('id',$skema->id)->get()
+            'skemas' => $skema
+        ]);
     }
 
     /**

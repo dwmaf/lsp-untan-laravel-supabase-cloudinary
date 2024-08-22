@@ -8,16 +8,26 @@
         <meta name="author" content="" />
         <title>Dashboard Admin LSP UNTAN</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-        @vite(['resources/css/styles.css', 'resources/js/scripts.js', 'resources/js/datatables-simple-demo.js'])
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="/js/scripts.js"></script>
+        <script src="/js/datatables-simple-demo.js"></script>
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        {{-- Trix editor --}}
+        <link rel="stylesheet" type="text/css" href="/css/trix.css">
+        <script type="text/javascript" src="/js/trix.js"></script>
+        <style>
+            trix-toolbar [data-trix-button-group='file-tools'] {
+                display: none;
+            }
+        </style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark ">
-            <!-- Navbar Brand-->
+            
             <a class="navbar-brand ps-3" href="index.html">LSP UNTAN</a>
-            <!-- Sidebar Toggle-->
+            
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar-->
+            
             
             
         </nav>
@@ -27,13 +37,17 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             
-                            <a class="nav-link" href="/admin/skema">
+                            <a class="nav-link {{ Request::is('admin/skema*') ? 'active' : '' }}" href="/admin/skema">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-diagram-project"></i></div>
                                 Skema
                             </a>
-                            <a class="nav-link" href="/admin/asesor">
+                            <a class="nav-link {{ Request::is('admin/asesor*') ? 'active' : '' }}" href="/admin/asesor">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-users-line"></i></div>
                                 Asesor
+                            </a>
+                            <a class="nav-link {{ Request::is('admin/unitkompetensi*') ? 'active' : '' }}" href="/admin/unitkompetensi">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-users-line"></i></div>
+                                Unit Kompetensi
                             </a>
                             <form action="/logout" method="POST" class="d-inline">
                                 @csrf
@@ -42,10 +56,7 @@
                                     Logout
                                 </button>
                             </form>
-                            {{-- <a class="nav-link" href="/admin/asesor">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
-                                Logout
-                            </a> --}}
+                            
                         </div>
                     </div>
                     {{-- <div class="sb-sidenav-footer">
@@ -58,7 +69,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard Admin LSP UNTAN</h1>
+                        <h1 class="mt-4">Dashboard Admin LSP Pihak 1 UNTAN</h1>
                         @yield('adminchild')
                     </div>
                 </main>
@@ -76,8 +87,10 @@
                 </footer>
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script> --}}
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        {{-- @include('components.modalskema') --}}
     </body>
 </html>

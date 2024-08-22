@@ -9,7 +9,7 @@
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
         Daftar Skema
-    </div>
+    </div> 
     <div class="card-body">
         <a class="btn btn-primary mb-3" href="/admin/skema/create" ><i class="fa-solid fa-plus"></i> Tambah skema baru</a>
         <table id="datatablesSimple">
@@ -26,11 +26,12 @@
                         <td >{{ $loop->iteration }}</td>
                         <td >{{ $skema->nama_skema }}</td>
                         <td>
+                            <a class="btn btn-primary" href="/admin/skema/{{ $skema->id }}"><i class="fa-solid fa-eye"></i> Lihat Unit Kompetensi</a>
                             <a class="btn btn-warning" href="/admin/skema/{{ $skema->id }}/edit" ><i class="fa-solid fa-pen-to-square"></i></a>
                             <form class="d-inline" action="/admin/skema/{{ $skema->id }}" method="post">
                                 @method('delete')
                                 @csrf
-                                <button class="btn btn-danger border-0" onclick="return confirm('Hapus data skema?')"><i class="fa-solid fa-trash-can"></i></button>
+                                <button class="btn btn-danger border-0" onclick="return confirm('Hapus data {{ $skema->nama_skema }}?')"><i class="fa-solid fa-trash-can"></i></button>
                             </form>
                         </td>
                     </tr>
