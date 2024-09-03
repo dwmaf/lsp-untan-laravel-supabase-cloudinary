@@ -12,7 +12,7 @@ class Jadwal extends Model
         return $this->belongsTo(Skema::class);
     }
     public function asesor(){
-        return $this->hasOne(Asesor::class);
+        return $this->belongsTo(Asesor::class);
     }
 
     protected $fillable = [

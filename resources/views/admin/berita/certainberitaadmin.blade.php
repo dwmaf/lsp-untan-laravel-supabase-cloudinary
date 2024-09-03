@@ -13,8 +13,8 @@
             <img src="" alt="">
             <div class="card-body">
                 <h5 class="card-title">{{ $berita->judul_berita }}</h5>
-                <h6 class="">{{ $berita->created_at }}</h6>
-                <p>{{ $berita->konten_berita }}</p>
+                {{-- <h6 class="">{{ $berita->created_at }}</h6> --}}
+                <p>{!! $berita->konten_berita !!}</p>
             </div>
         </div>
     </div>

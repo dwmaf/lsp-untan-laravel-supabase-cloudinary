@@ -35,7 +35,7 @@
                         @if(empty($jadwal->asesor->nama_asesor))
                             <td>No data</td>
                         @else
-                            <td>{{ $jadwal->skema->nama_asesor }}</td>
+                            <td>{{ $jadwal->asesor->nama_asesor }}</td>
                         @endif
                         <td >{{ $jadwal->kapasitas }}</td>
                         <td >{{ $jadwal->biaya }}</td>

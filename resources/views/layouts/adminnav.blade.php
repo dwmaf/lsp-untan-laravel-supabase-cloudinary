@@ -13,8 +13,10 @@
         <script src="/js/datatables-simple-demo.js"></script>
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         {{-- Trix editor --}}
-        <link rel="stylesheet" type="text/css" href="/css/trix.css">
-        <script type="text/javascript" src="/js/trix.js"></script>
+        {{-- <link rel="stylesheet" type="text/css" href="/css/trix.css">
+        <script type="text/javascript" src="/js/trix.js"></script> --}}
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+        <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
         <style>
             trix-toolbar [data-trix-button-group='file-tools'] {
                 display: none;
@@ -48,6 +50,14 @@
                             <a class="nav-link {{ Request::is('admin/unitkompetensi*') ? 'active' : '' }}" href="/admin/unitkompetensi">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-users-line"></i></div>
                                 Unit Kompetensi
+                            </a>
+                            <a class="nav-link {{ Request::is('admin/berita*') ? 'active' : '' }}" href="/admin/berita">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-users-line"></i></div>
+                                Berita
+                            </a>
+                            <a class="nav-link {{ Request::is('admin/jadwal*') ? 'active' : '' }}" href="/admin/jadwal">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-users-line"></i></div>
+                                Jadwal
                             </a>
                             <form action="/logout" method="POST" class="d-inline">
                                 @csrf

@@ -30,7 +30,7 @@
                 <label for="kapasitas">Kapasitas</label>
             </div>
             <div class="form-floating mb-3">
-                <input class="form-control" name="kapasitas" id="kapasitas" type="text" required  />
+                <input class="form-control" name="biaya" id="kapasitas" type="text" required  />
                 <label for="kapasitas">Biaya</label>
             </div>
             <div class="form-floating mb-3">

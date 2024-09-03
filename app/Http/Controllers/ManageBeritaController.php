@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class ManageBeritaController extends Controller
 {
@@ -14,7 +15,7 @@ class ManageBeritaController extends Controller
     public function index()
     {
         return view('/admin/berita/manageberita', [
-            'beritas'=> Berita::all()
+            'beritas' => Berita::all()
         ]);
     }
 
@@ -31,12 +32,19 @@ class ManageBeritaController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->file('link_foto'));
         $validatedData = $request->validate([
             'judul_berita' => 'required',
             'konten_berita' => 'required',
             'link_foto' => 'image|required'
         ]);
         $validatedData['excerpt'] = Str::limit(strip_tags($request->konten_berita), 200);
+        $file = $request->file('link_foto');
+        $response = cloudinary()->upload($file->getPathname());
+        $url = $response->getSecurePath();
+        $public_id = $response->getPublicId();
+        $validatedData['link_foto'] = $url;
+        $validatedData['image_public_id'] = $public_id;
         Berita::create($validatedData);
         return redirect('/admin/berita')->with('success', 'Berita baru berhasil ditambahkan');
     }
@@ -47,32 +55,41 @@ class ManageBeritaController extends Controller
     public function show(Berita $berita)
     {
         return view('/admin/berita/certainberitaadmin', [
-            'berita' => Berita::where('id',$berita->id)->get(),
+            'berita' => Berita::where('id', $berita->id)->get(),
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Berita $berita)
+    public function edit(Berita $beritum)
     {
+
         return view('/admin/berita/editberita', [
-            'berita' => $berita
+            'beritum' => $beritum
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Berita $berita)
+    public function update(Request $request, Berita $beritum)
     {
+        dd($request);
         $validatedData = $request->validate([
             'judul_berita' => 'required',
             'konten_berita' => 'required',
             'link_foto' => 'image|required'
         ]);
+
         $validatedData['excerpt'] = Str::limit(strip_tags($request->konten_berita), 200);
-        Berita::where('id', $berita->id)
+        $file = $request->file('link_foto');
+        $response = cloudinary()->upload($file->getPathname());
+        $url = $response->getSecurePath();
+        $public_id = $response->getPublicId();
+        $validatedData['link_foto'] = $url;
+        $validatedData['image_public_id'] = $public_id;
+        Berita::where('id', $beritum->id)
             ->update($validatedData);
 
         return redirect('/admin/berita')->with('success', 'Berita berhasil diupdate');
@@ -81,9 +98,10 @@ class ManageBeritaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Berita $berita)
+    public function destroy(Berita $beritum)
     {
-        Berita::destroy($berita->id);
+        Cloudinary::destroy($beritum->image_public_id);
+        Berita::destroy($beritum->id);
         return redirect('/admin/berita')->with('success', 'Berita berhasil dihapus');
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asesor;
 use App\Models\Jadwal;
+use App\Models\Skema;
 use Illuminate\Http\Request;
 
 class ManageJadwalController extends Controller
@@ -22,7 +24,10 @@ class ManageJadwalController extends Controller
      */
     public function create()
     {
-        return view('/admin/jadwal/createjadwal');
+        return view('/admin/jadwal/createjadwal', [
+            'skemas' => Skema::get(),
+            'asesors' => Asesor::get()
+        ]);
     }
 
     /**
@@ -30,6 +35,7 @@ class ManageJadwalController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $validatedData = $request->validate([
             'kapasitas' => 'required',
             'skema_id' => 'required',
@@ -58,7 +64,9 @@ class ManageJadwalController extends Controller
     public function edit(Jadwal $jadwal)
     {
         return view('/admin/jadwal/editjadwal', [
-            'jadwal' => $jadwal
+            'jadwal' => $jadwal,
+            'asesors' => Asesor::all(),
+            'skemas' =>Skema::all()
         ]);
     }
 

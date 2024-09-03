@@ -13,6 +13,8 @@ use App\Http\Controllers\UnitkompetensiController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Skema;
 use App\Models\Asesor;
+use App\Models\Jadwal;
+use App\Models\Berita;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +29,9 @@ use App\Models\Asesor;
 Route::get('/', function () {
     return view('home', [
         'jumlah_skema' => Skema::count(),
-        'jumlah_asesor' => Asesor::count()
+        'jumlah_asesor' => Asesor::count(),
+        'jadwals' => Jadwal::orderBy('daftar_mulai', 'desc')->take(3)->get(),
+        'beritas' => Berita::orderBy('created_at','desc')->take(3)->get()
     ]);
 })->name('/');
 Route::get('/profile', function () {
@@ -51,4 +55,5 @@ Route::resource('/admin/asesor', ManageAsesorController::class)->middleware('aut
 Route::resource('/admin/unitkompetensi', UnitkompetensiController::class)->middleware('auth');
 Route::resource('/admin/berita', ManageBeritaController::class)->middleware('auth');
 Route::resource('/admin/jadwal', ManageJadwalController::class)->middleware('auth');
+
 

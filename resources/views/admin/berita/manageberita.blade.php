@@ -11,7 +11,7 @@
         Daftar Berita
     </div>
     <div class="card-body">
-        <a class="btn btn-primary mb-3" href="/admin/jadwal/create" ><i class="fa-solid fa-plus"></i> Tambah berita baru</a>
+        <a class="btn btn-primary mb-3" href="/admin/berita/create" ><i class="fa-solid fa-plus"></i> Tambah berita baru</a>
         <table id="datatablesSimple">
             <thead>
                     <tr>
@@ -28,8 +28,8 @@
                         <td >{{ $berita->judul_berita }}</td>
                         <td >{{ $berita->created_at }}</td>
                         <td >
-                            <a class=" btn btn-warning" href="/admin/jadwal/{{ $berita->id }}/edit" ><i class="fa-solid fa-pen-to-square"></i></a>
-                            <form action="/admin/jadwal/{{ $berita->id }}" method="post" class="d-inline">
+                            <a class=" btn btn-warning" href="/admin/berita/{{ $berita->id }}/edit" ><i class="fa-solid fa-pen-to-square"></i></a>
+                            <form action="/admin/berita/{{ $berita->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class=" btn btn-danger border-0" onclick="return confirm('Hapus data {{ $berita->judul_berita }}?')" ><i class="fa-solid fa-trash-can"></i></button>
