@@ -27,7 +27,13 @@
     </div>
     <h4 class="fw-bolder" style="color:#03326b">Pengurus LSP UNTAN</h4>
     <table class="table table-hover" style="color:#87929f">
+        @foreach ($penguruses as $pengurus)
         <tr>
+            <td>{{ $pengurus->role }}</td>
+            <td>: {{ $pengurus->nama }}</td>
+        </tr>
+        @endforeach
+        {{-- <tr>
             <td>Ketua LSP</td>
             <td>: Dr. Ir. Bomo Wibowo Sanjaya, ST., MT IPM</td>
         </tr>
@@ -54,11 +60,17 @@
         <tr>
             <td>Manajer Administrasi</td>
             <td>: Astuti, S.E., M.M</td>
-        </tr>
+        </tr> --}}
     </table>
     <h4 class="fw-bolder mt-4" style="color:#03326b">Pelaksana Komite LSP UNTAN</h4>
     <table class="table table-hover" style="color:#87929f">
-        <tr>
+        @foreach ($pelaksanas as $pelaksana)
+            <tr>
+                <td>{{ $pelaksana->role }}</td>
+                <td>: {{ $pelaksana->nama }}</td>
+            </tr>
+        @endforeach
+        {{-- <tr>
             <td>Ketua</td>
             <td>: Ir. Junaidi, M.Sc., IPM</td>
         </tr>
@@ -69,7 +81,7 @@
         <tr>
             <td>Anggota</td>
             <td>: Fera Damayanti, SE., M.Ak.</td>
-        </tr>
+        </tr> --}}
     </table>
 </div>
 @endsection

@@ -9,6 +9,13 @@ class Nowa extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'no_hp',
+        'key',
+        'value'
     ];
+
+    // Di dalam model Nowa
+    public static function getByKey($key)
+    {
+        return self::where('key', $key)->get();
+    }
 }

@@ -9,12 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    
     public function up(): void
     {
         Schema::create('beritas', function (Blueprint $table) {
             $table->id();
-            $table->string('link_foto');
-            $table->string('image_public_id');
+            $table->string('link_foto')->nullable();
             $table->string('judul_berita');
             $table->text('konten_berita');
             $table->string('excerpt')->default('')->nullable();

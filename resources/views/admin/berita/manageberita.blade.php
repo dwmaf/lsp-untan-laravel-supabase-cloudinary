@@ -28,6 +28,7 @@
                         <td >{{ $berita->judul_berita }}</td>
                         <td >{{ $berita->created_at }}</td>
                         <td >
+                            <a class="btn btn-primary" href="/admin/berita/{{ $berita->id }}"><i class="fa-solid fa-eye"></i></a>
                             <a class=" btn btn-warning" href="/admin/berita/{{ $berita->id }}/edit" ><i class="fa-solid fa-pen-to-square"></i></a>
                             <form action="/admin/berita/{{ $berita->id }}" method="post" class="d-inline">
                                 @method('delete')

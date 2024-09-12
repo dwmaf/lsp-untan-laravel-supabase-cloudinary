@@ -7,10 +7,10 @@
         Edit Berita
     </div>
     <div class="card-body">
-        <form class="pt-3" action="/admin/berita/{{ $beritum->id }}" method="POST">
+        <form class="pt-3" action="/admin/berita/{{ $beritum->id }}" method="POST" enctype="multipart/form-data">
             @method('put')
             @csrf
-            
+            <input type="hidden" name="oldImage" value="{{ $beritum->link_foto }}">
             <div class="form-floating mb-3">
                 <input class="form-control" name="judul_berita" id="judul_berita" type="text" value="{{ $beritum->judul_berita }}"/>
                 <label for="judul_berita">Judul Berita</label>

@@ -15,6 +15,10 @@ use App\Models\Skema;
 use App\Models\Asesor;
 use App\Models\Jadwal;
 use App\Models\Berita;
+use App\Models\Nowa;
+use App\Models\Pelaksana;
+use App\Models\Pengurus;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,11 +35,15 @@ Route::get('/', function () {
         'jumlah_skema' => Skema::count(),
         'jumlah_asesor' => Asesor::count(),
         'jadwals' => Jadwal::orderBy('daftar_mulai', 'desc')->take(3)->get(),
-        'beritas' => Berita::orderBy('created_at','desc')->take(3)->get()
+        'beritas' => Berita::orderBy('created_at','desc')->take(3)->get(),
+        'nowa' => Nowa::where('key', 'WA')->get()
     ]);
 })->name('/');
 Route::get('/profile', function () {
-    return view('profile');
+    return view('profile', [
+       'penguruses' => Pengurus::all(),
+       'pelaksanas' => Pelaksana::all()
+    ]);
 });
 
 Route::get('/asesor', [AsesorController::class, 'index']);

@@ -21,13 +21,15 @@
                     <tr>
                         <td >{{ $unitkompetensi->kode_unit }}</td>
                         <td >{{ $unitkompetensi->judul_unit }}</td>
-                        <td>
-                            <a class="btn btn-warning" href="/admin/unitkompetensi/{{ $unitkompetensi->id }}/edit" ><i class="fa-solid fa-pen-to-square"></i></a>
-                            <form class="d-inline" action="/admin/unitkompetensi/{{ $unitkompetensi->id }}" method="post">
-                                @method('delete')
-                                @csrf
-                                <button class="btn btn-danger border-0" onclick="return confirm('Hapus data {{ $unitkompetensi->judul_unit }}?')"><i class="fa-solid fa-trash-can"></i></button>
-                            </form>
+                        <td >
+                            <div  class="d-md-flex gap-1">
+                                <a class=" btn btn-warning" href="/admin/unitkompetensi/{{ $unitkompetensi->id }}/edit" ><i class="fa-solid fa-pen-to-square"></i></a>
+                                <form class="" action="/admin/unitkompetensi/{{ $unitkompetensi->id }}" method="post">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn btn-danger border-0" onclick="return confirm('Hapus data {{ $unitkompetensi->judul_unit }}?')"><i class="fa-solid fa-trash-can"></i></button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     @endforeach

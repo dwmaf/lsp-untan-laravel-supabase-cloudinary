@@ -14,7 +14,6 @@ class Jadwal extends Model
     public function asesor(){
         return $this->belongsTo(Asesor::class);
     }
-
     protected $fillable = [
         'kapasitas',
         'skema_id',

@@ -675,6 +675,11 @@ progress {
   margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
 }
+.khusus-button {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
 .row > * {
   flex-shrink: 0;
   width: 100%;

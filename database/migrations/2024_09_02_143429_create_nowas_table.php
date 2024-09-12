@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('nowas', function (Blueprint $table) {
             $table->id();
-            $table->string('no_hp');
+            $table->string('key');
+            $table->string('value');
             $table->timestamps();
         });
     }

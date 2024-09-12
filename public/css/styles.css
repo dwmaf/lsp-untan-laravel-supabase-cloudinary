@@ -724,6 +724,11 @@ progress {
   margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
 }
+.khusus-button {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
 .row > * {
   flex-shrink: 0;
   width: 100%;
@@ -3820,6 +3825,50 @@ textarea.form-control-lg {
   justify-content: space-between;
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
 }
+/* navbar update below */
+.navbar{
+  font-family: 'Poppins', sans-serif;
+}
+@media (min-width: 992px) {
+  .daftar-padding {
+    margin-left: 10px;
+  }
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after{
+    opacity: 0;
+    transition: all 0.2s;
+    content: '';
+    height: 2px;
+    width: 100%;
+    background-color: #0031ae;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  } 
+  .nav-link:hover::after {
+    opacity: 1;
+  }
+}
+.navbar .daftar {
+  color: #ffffff;
+}
+/* until here */
+
+/* update footer below */
+footer.sb-sidenav-footer {
+  padding: 40px 0;
+}
+footer .text-uppercase {
+  letter-spacing: 1px;
+}
+
+footer p.lead {
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+/* until here */
 .navbar > .container,
 .navbar > .container-fluid,
 .navbar > .container-sm,
@@ -4261,6 +4310,22 @@ textarea.form-control-lg {
   background-clip: border-box;
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
+}
+.jadwal {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s;
+}
+.jadwal:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  transform: scale(1.01);
+}
+.jadwal-title {
+  color: #007bff;
+  font-weight: bold;
+}
+.jadwal-body p {
+  color: #6c757d;
 }
 .card > hr {
   margin-right: 0;

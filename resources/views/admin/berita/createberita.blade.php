@@ -19,7 +19,6 @@
                 <trix-editor input="konten_berita"></trix-editor>
             </div>
             <input class="form-control mb-3" name="link_foto" id="link_foto" type="file" required  />
-            
             <button type="submit" class="btn btn-primary">Tambah</button>
         </form>
     </div>

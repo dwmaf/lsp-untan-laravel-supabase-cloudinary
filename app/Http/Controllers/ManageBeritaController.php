@@ -6,6 +6,7 @@ use App\Models\Berita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Illuminate\Support\Facades\Storage;
 
 class ManageBeritaController extends Controller
 {
@@ -32,19 +33,24 @@ class ManageBeritaController extends Controller
      */
     public function store(Request $request)
     {
+        
         // dd($request->file('link_foto'));
         $validatedData = $request->validate([
             'judul_berita' => 'required',
             'konten_berita' => 'required',
-            'link_foto' => 'image|required'
+            'link_foto' => 'image'
         ]);
+
+        if($request->file('link_foto')) {
+            $validatedData['link_foto'] = $request->file('link_foto')->store('berita-images');
+        }
         $validatedData['excerpt'] = Str::limit(strip_tags($request->konten_berita), 200);
-        $file = $request->file('link_foto');
-        $response = cloudinary()->upload($file->getPathname());
-        $url = $response->getSecurePath();
-        $public_id = $response->getPublicId();
-        $validatedData['link_foto'] = $url;
-        $validatedData['image_public_id'] = $public_id;
+        // $file = $request->file('link_foto');
+        // $response = cloudinary()->upload($file->getPathname());
+        // $url = $response->getSecurePath();
+        // $public_id = $response->getPublicId();
+        // $validatedData['link_foto'] = $url;
+        // $validatedData['image_public_id'] = $public_id;
         Berita::create($validatedData);
         return redirect('/admin/berita')->with('success', 'Berita baru berhasil ditambahkan');
     }
@@ -52,10 +58,10 @@ class ManageBeritaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Berita $berita)
+    public function show(Berita $beritum)
     {
         return view('/admin/berita/certainberitaadmin', [
-            'berita' => Berita::where('id', $berita->id)->get(),
+            'berita' => Berita::where('id', $beritum->id)->get(),
         ]);
     }
 
@@ -75,20 +81,26 @@ class ManageBeritaController extends Controller
      */
     public function update(Request $request, Berita $beritum)
     {
-        dd($request);
+        // dd($request);
         $validatedData = $request->validate([
             'judul_berita' => 'required',
             'konten_berita' => 'required',
-            'link_foto' => 'image|required'
+            'link_foto' => 'image'
         ]);
-
         $validatedData['excerpt'] = Str::limit(strip_tags($request->konten_berita), 200);
-        $file = $request->file('link_foto');
-        $response = cloudinary()->upload($file->getPathname());
-        $url = $response->getSecurePath();
-        $public_id = $response->getPublicId();
-        $validatedData['link_foto'] = $url;
-        $validatedData['image_public_id'] = $public_id;
+        if($request->file('link_foto')) {
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['link_foto'] = $request->file('link_foto')->store('berita-images');
+        }
+        // $file = $request->file('link_foto');
+        // $response = cloudinary()->upload($file->getPathname());
+        // $url = $response->getSecurePath();
+        // $public_id = $response->getPublicId();
+        // $validatedData['link_foto'] = $url;
+        // $validatedData['image_public_id'] = $public_id;
+        // dd($validatedData);
         Berita::where('id', $beritum->id)
             ->update($validatedData);
 
@@ -100,7 +112,10 @@ class ManageBeritaController extends Controller
      */
     public function destroy(Berita $beritum)
     {
-        Cloudinary::destroy($beritum->image_public_id);
+        // Cloudinary::destroy($beritum->image_public_id);
+        if($beritum->link_foto){
+            Storage::delete($beritum->link_foto);
+        }
         Berita::destroy($beritum->id);
         return redirect('/admin/berita')->with('success', 'Berita berhasil dihapus');
     }
