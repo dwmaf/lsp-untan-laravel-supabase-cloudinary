@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/user-navbar.css">
     <script src="/js/scripts.js"></script>
     <script src="/js/datatables-simple-demo.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>

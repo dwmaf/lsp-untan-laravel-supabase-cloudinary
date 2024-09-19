@@ -1,0 +1,28 @@
+.navbar{
+    font-family: 'Poppins', sans-serif;
+  }
+  @media (min-width: 992px) {
+    .daftar-padding {
+      margin-left: 10px;
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after{
+      opacity: 0;
+      transition: all 0.2s;
+      content: '';
+      height: 2px;
+      width: 100%;
+      background-color: #0031ae;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    } 
+    .nav-link:hover::after {
+      opacity: 1;
+    }
+  }
+  .navbar .daftar {
+    color: #ffffff;
+  }

@@ -12,9 +12,7 @@
         <script src="/js/scripts.js"></script>
         <script src="/js/datatables-simple-demo.js"></script>
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        {{-- Trix editor --}}
-        {{-- <link rel="stylesheet" type="text/css" href="/css/trix.css">
-        <script type="text/javascript" src="/js/trix.js"></script> --}}
+        
         <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
         <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
         <style>
@@ -26,7 +24,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark ">
             
-            <a class="navbar-brand ps-3" href="/">LSP UNTAN</a>
+            <a class="navbar-brand ps-3" href="/" style="color: rgb(3, 175, 206)">LSP UNTAN</a>
             
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             
@@ -47,16 +45,16 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-users-line"></i></div>
                                 Asesor
                             </a>
-                            <a class="nav-link {{ Request::is('admin/unitkompetensi*') ? 'active' : '' }}" href="/admin/unitkompetensi">
+                            {{-- <a class="nav-link {{ Request::is('admin/unitkompetensi*') ? 'active' : '' }}" href="/admin/unitkompetensi">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-users-line"></i></div>
                                 Unit Kompetensi
-                            </a>
+                            </a> --}}
                             <a class="nav-link {{ Request::is('admin/berita*') ? 'active' : '' }}" href="/admin/berita">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-users-line"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-newspaper"></i></div>
                                 Berita
                             </a>
                             <a class="nav-link {{ Request::is('admin/jadwal*') ? 'active' : '' }}" href="/admin/jadwal">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-users-line"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-calendar-alt"></i></div>
                                 Jadwal
                             </a>
                             <form action="/logout" method="POST" class="d-inline">

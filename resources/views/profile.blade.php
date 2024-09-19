@@ -7,9 +7,7 @@
         </h2>
     </div>
     <h2 class="fw-bolder" style="color:#03326b">LSP Pihak 1 UNTAN</h2>
-    <p style="color:#87929f">LSP Pihak 1 UNTAN adalah lembaga pelaksana uji kompetensi dan
-        sertifikasi kompetensi
-        . LSP Pihak 1 UNTAN Berdiri tanggal 21 Agustus 2023 berdasarkan surat Keputusan Rektor Unversitas Tanjungpura No. 3214/UN22/OT.00/2023 Tentang Pendirian Lembaga Sertifikasi Profesi Pihak Kesatu Universitas Tanjungpura.</p>
+    <p style="color:#87929f">LSP Pihak 1 UNTAN adalah lembaga pelaksana uji kompetensi dan sertifikasi kompetensi. LSP Pihak 1 UNTAN Berdiri tanggal 21 Agustus 2023 berdasarkan surat Keputusan Rektor Unversitas Tanjungpura No. 3214/UN22/OT.00/2023 Tentang Pendirian Lembaga Sertifikasi Profesi Pihak Kesatu Universitas Tanjungpura.</p>
     <h2 class="fw-bolder mt-5" style="color:#03326b">Visi</h2>
     <p style="color:#87929f">Mewujudkan Lembaga Sertifikasi Profesi menjadi pusat keunggulan dalam sertifikasi kompetensi, meningkatkan profesionalisme tenaga kerja, dan mendorong pertumbuhan sektor industri di tingkat Regional, Nasional dan Internasional.</p>
     <h2 class="fw-bolder mt-5" style="color:#03326b">Misi</h2>
