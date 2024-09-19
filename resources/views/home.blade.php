@@ -114,8 +114,8 @@
             @foreach ($beritas as $berita)
                 <div class="col-md-4 my-2">
                     <div class="card jadwal">
-                        {{-- <img src="{{ cloudinary()->getUrl($berita->image_public_id)}}" alt="Berita Image" class="card-img-top"> --}}
-                        <img src="{{ asset('storage/' . $berita->link_foto) }}" alt="Berita Image" class="card-img-top">
+                        <img src="{{ cloudinary()->getUrl($berita->image_public_id)}}" alt="Berita Image" class="card-img-top">
+                        {{-- <img src="{{ asset('storage/' . $berita->link_foto) }}" alt="Berita Image" class="card-img-top"> --}}
                         <div class="card-body jadwal-body">
                             <h5 class="card-title fw-bolder">{{ $berita->judul_berita }}</h5>
                             <h6 class="">{{ \Carbon\Carbon::parse($berita->created_at)->format('j M Y') }}</h6>

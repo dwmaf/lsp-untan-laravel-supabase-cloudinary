@@ -31,34 +31,6 @@
             <td>: {{ $pengurus->nama }}</td>
         </tr>
         @endforeach
-        {{-- <tr>
-            <td>Ketua LSP</td>
-            <td>: Dr. Ir. Bomo Wibowo Sanjaya, ST., MT IPM</td>
-        </tr>
-        <tr>
-            <td>Komite Skema</td>
-            <td>: Ir. Junaidi, M.Sc., IPM</td>
-        </tr>
-        <tr>
-            <td>Manajer Sertifikasi</td>
-            <td>: Ir. Muhammad Taufiqurrahman, ST., MT</td>
-        </tr>
-        <tr>
-            <td>Manajer Keuangan</td>
-            <td>: Dra. herlasti Pujiningsih, MM</td>
-        </tr>
-        <tr>
-            <td>Manajer Mutu</td>
-            <td>: Dr. Slamet Rifanjani, S.Hut, MP</td>
-        </tr>
-        <tr>
-            <td>Manajer TUK</td>
-            <td>: Dr. Nelly Wahyuni, S.Si., M.Si</td>
-        </tr>
-        <tr>
-            <td>Manajer Administrasi</td>
-            <td>: Astuti, S.E., M.M</td>
-        </tr> --}}
     </table>
     <h4 class="fw-bolder mt-4" style="color:#03326b">Pelaksana Komite LSP UNTAN</h4>
     <table class="table table-hover" style="color:#87929f">
@@ -68,18 +40,6 @@
                 <td>: {{ $pelaksana->nama }}</td>
             </tr>
         @endforeach
-        {{-- <tr>
-            <td>Ketua</td>
-            <td>: Ir. Junaidi, M.Sc., IPM</td>
-        </tr>
-        <tr>
-            <td>Anggota</td>
-            <td>: Ir. Herlina Darwati, S.Hut, MP., IPM</td>
-        </tr>
-        <tr>
-            <td>Anggota</td>
-            <td>: Fera Damayanti, SE., M.Ak.</td>
-        </tr> --}}
     </table>
 </div>
 @endsection

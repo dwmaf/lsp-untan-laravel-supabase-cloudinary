@@ -34,23 +34,23 @@ class ManageBeritaController extends Controller
     public function store(Request $request)
     {
         
-        // dd($request->file('link_foto'));
+        
         $validatedData = $request->validate([
             'judul_berita' => 'required',
             'konten_berita' => 'required',
             'link_foto' => 'image'
         ]);
 
-        if($request->file('link_foto')) {
-            $validatedData['link_foto'] = $request->file('link_foto')->store('berita-images');
-        }
+        // if($request->file('link_foto')) {
+        //     $validatedData['link_foto'] = $request->file('link_foto')->store('berita-images');
+        // }
         $validatedData['excerpt'] = Str::limit(strip_tags($request->konten_berita), 200);
-        // $file = $request->file('link_foto');
-        // $response = cloudinary()->upload($file->getPathname());
-        // $url = $response->getSecurePath();
-        // $public_id = $response->getPublicId();
-        // $validatedData['link_foto'] = $url;
-        // $validatedData['image_public_id'] = $public_id;
+        $file = $request->file('link_foto');
+        $response = cloudinary()->upload($file->getPathname());
+        $url = $response->getSecurePath();
+        $public_id = $response->getPublicId();
+        $validatedData['link_foto'] = $url;
+        $validatedData['image_public_id'] = $public_id;
         Berita::create($validatedData);
         return redirect('/admin/berita')->with('success', 'Berita baru berhasil ditambahkan');
     }
@@ -88,19 +88,18 @@ class ManageBeritaController extends Controller
             'link_foto' => 'image'
         ]);
         $validatedData['excerpt'] = Str::limit(strip_tags($request->konten_berita), 200);
-        if($request->file('link_foto')) {
-            if($request->oldImage){
-                Storage::delete($request->oldImage);
-            }
-            $validatedData['link_foto'] = $request->file('link_foto')->store('berita-images');
-        }
-        // $file = $request->file('link_foto');
-        // $response = cloudinary()->upload($file->getPathname());
-        // $url = $response->getSecurePath();
-        // $public_id = $response->getPublicId();
-        // $validatedData['link_foto'] = $url;
-        // $validatedData['image_public_id'] = $public_id;
-        // dd($validatedData);
+        // if($request->file('link_foto')) {
+        //     if($request->oldImage){
+        //         Storage::delete($request->oldImage);
+        //     }
+        //     $validatedData['link_foto'] = $request->file('link_foto')->store('berita-images');
+        // }
+        $file = $request->file('link_foto');
+        $response = cloudinary()->upload($file->getPathname());
+        $url = $response->getSecurePath();
+        $public_id = $response->getPublicId();
+        $validatedData['link_foto'] = $url;
+        $validatedData['image_public_id'] = $public_id;
         Berita::where('id', $beritum->id)
             ->update($validatedData);
 
@@ -112,10 +111,10 @@ class ManageBeritaController extends Controller
      */
     public function destroy(Berita $beritum)
     {
-        // Cloudinary::destroy($beritum->image_public_id);
-        if($beritum->link_foto){
-            Storage::delete($beritum->link_foto);
-        }
+        Cloudinary::destroy($beritum->image_public_id);
+        // if($beritum->link_foto){
+        //     Storage::delete($beritum->link_foto);
+        // }
         Berita::destroy($beritum->id);
         return redirect('/admin/berita')->with('success', 'Berita berhasil dihapus');
     }
